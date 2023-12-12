@@ -25,7 +25,7 @@ boot || goto custom_exit
 
 :option_two
 kernel https://boot.netboot.xyz/memdisk floppy
-initrd https://www.allbootdisks.com/disk_images/Dos6.22.img
+initrd tftp://192.168.2.50/Dos6.22.img
 boot || goto custom_exit
 
 :option_three
