@@ -24,6 +24,7 @@ imgargs vmlinuz put_kernel_img_args_here
 boot || goto custom_exit
 
 :option_two
+imgfree
 kernel https://boot.netboot.xyz/memdisk floppy
 initrd tftp://192.168.2.50/Dos6.22.img
 boot || goto custom_exit
