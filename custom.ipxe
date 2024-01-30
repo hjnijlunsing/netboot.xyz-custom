@@ -8,7 +8,9 @@ clear custom_choice
 menu This is a Test Menu
 item --gap This is the first sub menu
 item option_one ${space} Loading a kernel and initrd
-item option_two ${space} Loading an ISO
+item option_two ${space} MS Dos 6.22
+item option_three ${space} Free Dos 6.22
+
 item --gap This is a second sub menu
 item option_three ${space} Loads another custom sub menu
 item option_four ${space} This is option four
@@ -30,8 +32,10 @@ initrd tftp://192.168.2.50/Dos6.22.img
 boot || goto custom_exit
 
 :option_three
-echo Chains into another menu...
-chain https://raw.githubusercontent.com/${github_user}/netboot.xyz-custom/master/custom1.ipxe || goto custom
+imgfree
+kernel https://boot.netboot.xyz/memdisk floppy
+initrd tftp://192.168.2.50/fdos.img
+boot || goto custom_exit
 
 :custom_exit
 chain utils.ipxe
